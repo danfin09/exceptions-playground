@@ -18,7 +18,15 @@ function readAndDisplayJSON(filename) {
 }
 
 // Ejecutar la función con el nombre del archivo
-readAndDisplayJSON('people1.json');
+try {
+    readAndDisplayJSON('people1.json');
+} catch (error) {
+    console.error(`Error reading people1.json: ${error.message}`);
+}
 
 // Este fichero falla. Usar try...catch para gestionar el error
-// readAndDisplayJSON('people1_bad.json');
+try {
+    readAndDisplayJSON('people1_bad.json');
+} catch (error) {
+    console.error(`Error reading people1_bad.json: ${error.message}`);
+}
