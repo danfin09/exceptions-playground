@@ -1,12 +1,19 @@
 
 function findPlate(plates, plate) {
+    if (typeof plate !== 'string') {
+        throw new Error("Plate must be a string.");
+    }
 
-        // Validar que plate no es una cadena vacía
-        if (plate.trim() === '') {
-            throw new Error("Plate cannot be an empty string.");
+    // Validar que plate no es una cadena vacía
+    if (plate.trim() === '') {
+        throw new Error("Plate cannot be an empty string.");
         }
 
         // Buscar la matrícula en el array de matrículas
+    const platePattern = /^[A-Z]{3}\d{4}$/;
+    if (!platePattern.test(plate)) {
+        throw new Error("Plate is not in a valid format.");
+    }   
         return plates.includes(plate);
 }
 
